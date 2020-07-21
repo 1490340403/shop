@@ -1,0 +1,40 @@
+.index{
+    width:100%;
+    height:80rpx;
+    line-height:80rpx;
+    position: relative;
+    left:0;
+    top:0;
+    
+    display: flex;
+  }
+  .city{
+      font-size: 24rpx;
+      width:150rpx;
+      height:100%;
+      text-align:center;
+  }
+  .search{
+      flex:1;
+      position: relative;
+  }
+  input{
+    width:90%;
+    background:rgb(0, 0, 0,0.1);
+    height:60rpx;
+    line-height:60rpx;
+    box-sizing: border-box;
+    margin:10rpx 0;
+    padding:0 20rpx 0 40rpx;
+    font-size: 28rpx;
+  }
+  span{
+    position: absolute;
+    top: 25rpx;
+    left: 10rpx;
+    background: url('http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-2fb94833aa.png') center no-repeat;
+    background-size: 100%;
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 10rpx;
+  }

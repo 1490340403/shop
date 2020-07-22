@@ -5,7 +5,6 @@
     position: relative;
     left:0;
     top:0;
-    
     display: flex;
   }
   .city{
@@ -13,6 +12,11 @@
       width:150rpx;
       height:100%;
       text-align:center;
+      box-sizing: border-box;
+      padding:0 20rpx;
+      overflow:hidden; 
+      text-overflow:ellipsis;
+      white-space:nowrap; 
   }
   .search{
       flex:1;

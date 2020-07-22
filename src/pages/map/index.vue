@@ -34,6 +34,7 @@
 <script>
 import "./index.css";
 import amapFile from "../../utils/amap-wx.js";
+import {mapMutations} from 'vuex'
 export default {
   data() {
     return {
@@ -49,13 +50,17 @@ export default {
     this.getLocation();
   },
   methods: {
+    ...mapMutations(['CHANGE_CITY_NAME']),
     clickCity(val){
-      console.log(val)
+      this.CHANGE_CITY_NAME(val.district)
+      wx.navigateBack({
+        delta: 1
+      });
     },
     getLocation() {
       var that = this;
       var myAmapFun = new amapFile.AMapWX({
-        key: "256d94ac927c73a25e9177d789a1d060",
+        key: "c484beae1f3191dd6af41da09aba4fe5",
       });
       myAmapFun.getPoiAround({
         iconPathSelected: "/static/images/marker.png",
@@ -75,7 +80,7 @@ export default {
       const { value } = e.target;
       var that = this;
       var myAmapFun = new amapFile.AMapWX({
-        key: "256d94ac927c73a25e9177d789a1d060",
+        key: "c484beae1f3191dd6af41da09aba4fe5",
       });
       myAmapFun.getInputtips({
         keywords: value,

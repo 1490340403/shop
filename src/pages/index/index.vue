@@ -10,11 +10,15 @@
 <script>
 import amapFile from "../../utils/amap-wx.js";
 import "./index.css";
+import {mapState} from 'vuex';
 export default {
   data() {
     return {
-      cityName: "上海1",
+      //cityName: "上海1",
     };
+  },
+  computed:{
+    ...mapState(['cityName'])
   },
   methods: {
     searchCity() {
@@ -38,7 +42,7 @@ export default {
     },
     getCity(){
        let _this = this
-      var myAmapFun = new amapFile.AMapWX({key:'256d94ac927c73a25e9177d789a1d060'});
+      var myAmapFun = new amapFile.AMapWX({key:'c484beae1f3191dd6af41da09aba4fe5'});
       myAmapFun.getRegeo({
         success: function (data) {
           // 成功回调

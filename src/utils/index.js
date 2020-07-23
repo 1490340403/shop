@@ -17,8 +17,36 @@ export function formatTime (date) {
 
   return `${t1} ${t2}`
 }
-
+const host='http://localhost:1234'
+function request (url, method, data, header = {}) {
+  wx.showLoading({
+    title: "加载中"
+  });
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: host + url,
+      method: method,
+      data: data,
+      header: {
+        "content-type": "application/json"
+      },
+      success (res) {
+        wx.hideLoading();
+        resolve(res.data)
+      },
+      fail (error) {
+        wx.hideLoading();
+        reject(false)
+      },
+      complete () {
+        wx.hideLoading();
+      }
+    })
+  })
+}
+export {request}
 export default {
   formatNumber,
-  formatTime
+  formatTime,
+  
 }

@@ -3,7 +3,7 @@
     <div class="index">
       <div class="city" @click="searchCity">{{ cityName }}</div>
       <div class="search">
-        <input placeholder="请输入搜索内容" />
+        <input placeholder="请输入搜索内容" @focus="goSearch"/>
         <span></span>
       </div>
     </div>
@@ -23,16 +23,16 @@
     </div>
     <div class="channer">
       <ul>
-        <li v-for="(item, index) in channel" :key="index">
+        <li v-for="(item, index) in channel" :key="index" @click="goCateList(item.id)">
           <img :src="item.icon_url" />
           <p>{{ item.name }}</p>
         </li>
       </ul>
     </div>
     <div class="brandList">
-      <div class="title">品牌制造商专供 ></div>
+      <div class="title" @click="goBrandList">品牌制造商专供 ></div>
       <ul>
-        <li v-for="(item, index) in brandList" :key="index">
+        <li v-for="(item, index) in brandList" :key="index" @click="goBarndDetail(item.id)">
           <img :src="item.new_pic_url" />
           <p class="name">{{ item.name }}</p>
           <p class="price">${{ item.floor_price }}</p>
@@ -40,7 +40,7 @@
       </ul>
     </div>
     <div class="newGoods">
-      <div class="title">
+      <div class="title" @click="goNewGoods('new')">
         <p>新品首发</p>
         <p>查看全部</p>
       </div>
@@ -60,7 +60,7 @@
       </scroll-view>
     </div>
     <div class="newGoods hotGoods">
-      <div class="title">
+      <div class="title" @click="goNewGoods('hot')">
         <p>人气推荐 . 好物精选</p>
         <p>查看全部</p>
       </div>
@@ -83,7 +83,7 @@
         <div class="title">专题精选</div>
          <scroll-view class="scroll-x" :scroll-x="true">
         <view v-for="(item, index) in topicList" :key="index" class="rowItem">
-             <div class="list">
+             <div class="list" @click="goTopicDetail(item.id)">
             <img
               class="item-image"
               :src="item.item_pic_url"
@@ -107,14 +107,7 @@
              <p class="price">${{items.retail_price}}</p>
            </li>
          </ul>
-          <div class="last">
-              <p>{{item.name}}好物</p>
-              <span class="icon"></span>
-            </div>
-         <div>
-           
           </div>
-         </div>
        </div>
     </div>
   </div>
@@ -187,6 +180,36 @@ export default {
       this.topicList = result.topicList;
       this.newCategoryList = result.newCategoryList;
     },
+    goSearch(){
+       wx.navigateTo({
+        url:'/pages/search/main'
+      })
+    },
+    goCateList(id){
+      wx.navigateTo({
+        url:'/pages/cateList/main?id='+id
+      })
+    },
+    goBrandList(){
+      wx.navigateTo({
+        url:"/pages/brandList/main"
+      })
+    },
+    goBarndDetail(id){
+      wx.navigateTo({
+        url:'/pages/brandDetail/main?id='+id
+      })
+    },
+    goNewGoods(val){
+        wx.navigateTo({
+        url:"/pages/newGood/main?val="+val
+      })
+    },
+    goTopicDetail(id){
+        wx.navigateTo({
+        url:"/pages/topicDetail/main?id="+id
+      })
+    }
   },
 };
 </script>

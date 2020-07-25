@@ -6,8 +6,13 @@
     "pages/category/main",
     "pages/cart/main",
     "pages/my/main",
-    "pages/map/main"
-    
+    "pages/map/main",
+    "pages/search/main",
+    "pages/cateList/main",
+    "pages/brandList/main",
+    "pages/brandDetail/main",
+    "pages/newGood/main",
+    "pages/topicDetail/main"
   ],
   "permission": {
     "scope.userLocation": {

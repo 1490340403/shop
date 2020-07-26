@@ -1,6 +1,8 @@
 /*搜索头部*/
 .search{
     width:100%;
+    height: 100%;
+    position: relative;
 }
 .search .header{
     width:100%;
@@ -74,3 +76,78 @@
 .hotHis .his_list .active{
     color:red;
 }
+
+
+.search .searchListVal{
+    position: absolute;
+    width: 100%;
+    top: 91rpx;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 0 32rpx;
+    z-index: 9;
+    background: #fff;
+    overflow-y: scroll;
+   
+    -webkit-overflow-scrolling: touch;
+}
+.search .searchListVal li{
+    font-size: 40rpx;
+    line-height: 60rpx;
+}
+.search .dataList .data_title{
+    display: flex;
+    align-items: center;
+    height:80rpx;
+    border-bottom: 1rpx solid #d9d9d9;
+}
+.search .dataList .data_title div{
+    flex:1;
+    text-align: center;
+    font-size: 30rpx;
+}
+.search .dataList .data_title .active{
+    color: #b4282d;
+  }
+  .search .dataList .data_title  .price {
+    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/no-3127092a69.png) 165rpx center no-repeat;
+    background-size: 15rpx 21rpx;
+  }
+  .search .dataList .data_title  .active.desc {
+    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/down-95e035f3e5.png) 165rpx center no-repeat;
+    background-size: 15rpx 21rpx;
+  }
+  .search .dataList .data_title .active.asc {
+    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/up-636b92c0a5.png) 165rpx center no-repeat;
+    background-size: 15rpx 21rpx;
+  }
+ .search .dataList .data_list{
+    display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+ }
+ .search .dataList .data_list li{
+     flex:1;
+     text-align: center;
+    background-color: #fff;
+    padding: 15rpx 0;
+    border-bottom: 1rpx solid #d9d9d9;
+    border-right: 1rpx solid #d9d9d9;
+    box-sizing: border-box;
+ }
+ .search .dataList .data_list li:nth-child(2n){
+    border-right: none;
+ }
+ .search .dataList .data_list li img{
+    display: block;
+    width: 302rpx;
+    height: 302rpx;
+    margin: 0 auto;
+  }
+  .search .dataList .data_list li p{
+      font-size: 30rpx;
+  }
+  .search .dataList .data_list li p:nth-child(3){
+    color: #b4282d;
+  }

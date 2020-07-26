@@ -28,7 +28,7 @@
 
     <div class="searchListVal" v-if="words">
       <ul>
-        <li v-for="(item, index) in searchListVal" :key="index">
+        <li v-for="(item, index) in tipsData" :key="index">
           {{ item.name }}
         </li>
       </ul>
@@ -97,7 +97,8 @@ export default {
       historyData: [],
       hotKeywordList: [],
       searchListVal: [],
-      index:0
+      index:0,
+      tipsData:[]
     };
   },
   mounted() {
@@ -130,15 +131,19 @@ export default {
       this.getHostData();
       if(e.currentTarget.dataset.keyword){
          this.words=e.currentTarget.dataset.keyword
-         this.tipsearch()
+         this.tipsearch(1)
       }
     },
-    async tipsearch() {
+    async tipsearch(index) {
       const data = await request("/search/searchList", "GET", {
         name: this.words,
         order: this.order,
       });
-      this.searchListVal = data.keywords;
+      if(index==1){
+         this.searchListVal = data.keywords;
+      }
+      this.tipsData = data.keywords;
+      
 
     },
     inputFocus() {

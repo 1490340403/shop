@@ -128,7 +128,7 @@
       flex-wrap: wrap;
  }
  .search .dataList .data_list li{
-     flex:1;
+     width:50%;
      text-align: center;
     background-color: #fff;
     padding: 15rpx 0;

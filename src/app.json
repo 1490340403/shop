@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/goodDetail/main",
     "pages/search/main",
     "pages/index/main",
     "pages/topic/main",

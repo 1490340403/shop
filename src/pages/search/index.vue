@@ -28,7 +28,7 @@
 
     <div class="searchListVal" v-if="words">
       <ul>
-        <li v-for="(item, index) in tipsData" :key="index">
+        <li v-for="(item, index) in tipsData" :key="index" :data-keyword="item.name " @click="searchWords">
           {{ item.name }}
         </li>
       </ul>
@@ -75,7 +75,7 @@
         <div :class="index==2?'active':''" @click="sel(2)">分类</div>
       </div>
       <ul class="data_list">
-         <li v-for="(item,index) in searchListVal" :key="index">
+         <li v-for="(item,index) in searchListVal" :key="index" @click="goDetail(item.id)">
             <img :src="item.list_pic_url"/>
             <p>{{item.name}}</p>
             <p>{{item.retail_price}}元</p>
@@ -107,6 +107,14 @@ export default {
     this.getHostData();
   },
   methods: {
+    goDetail(id){
+      console.log(id)
+      wx.navigateTo({
+        url: '/pages/goodDetail/main?id='+id,
+        
+      });
+        
+    },
      sel(index){
         console.log(index)
         this.index=index

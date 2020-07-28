@@ -31,6 +31,15 @@
         <div>请选择规格参数</div>
         <div></div>
     </div>
+    <div class="canshu">
+      <div class="title">商品参数</div>
+      <ul class="can_list">
+        <li v-for="(item,index) in attribute" :key="index">
+          <p>{{item.name}}</p>
+          <span>{{item.value}}</span>
+        </li>
+      </ul>
+    </div>
     <div class="pop" v-show="showPop" >
         <div class="popBox active" :class="[showPop?'active':'']">
             <div class="top">
@@ -66,7 +75,8 @@ export default {
       banner: [],
       info:{},
       showPop:false,
-      num:1
+      num:1,
+      attribute:[]
     };
   },
    components: {
@@ -102,6 +112,7 @@ export default {
       console.log(data);
       this.banner = data.gallery;
       this.info=data.info
+      this.attribute=data.attribute
     },
   },
 };

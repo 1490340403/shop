@@ -150,3 +150,38 @@
     bottom: 0;
     
 }
+.wxParse .p {
+  margin:0 !important;
+}
+.canshu{
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  width:100%;
+  box-sizing: border-box;
+
+}
+.can_list{
+  width:100%;
+  
+  font-size: 30rpx;
+}
+.can_list li{
+  display: flex;
+  background: #f4f4f4;
+  line-height: 60rpx;
+  padding:0 20rpx;
+  margin: 20rpx auto;
+  box-sizing: border-box;
+
+}
+.can_list li p{
+  width:30%;
+  margin-right:30rpx;
+}
+.can_list li span{
+  flex:1;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}

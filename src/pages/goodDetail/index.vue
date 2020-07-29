@@ -60,6 +60,18 @@
         </div>
     </div>
      <wxParse :content="info.goods_desc" />
+     <div class="footer">
+       <div @click="changeColl"><span class="collect" :class="[showColl?'active':'']"></span>
+        
+       </div>
+       <div>
+         <span class="car"></span>
+         <span class="num">{{catNum}}</span>
+       </div>
+       <div @click="close">立即购买</div>
+       <div @click="addCar">加入购物车</div>
+
+     </div>
   </div>
 </template>
 
@@ -71,12 +83,15 @@ export default {
   data() {
     return {
       id: 1009024,
-      openId: "",
+      openId: "oQmbb4sNZdxaUQZ0sfYgvtOP2S7c",
       banner: [],
       info:{},
       showPop:false,
       num:1,
-      attribute:[]
+      attribute:[],
+      catNum:1,
+      showColl:'',
+      money:''
     };
   },
    components: {
@@ -89,10 +104,29 @@ export default {
     }
   },
   mounted() {
-    this.openId = wx.getStorageSync("openId") || "";
+    this.openId = wx.getStorageSync("openId") || "oQmbb4sNZdxaUQZ0sfYgvtOP2S7c";
     this.getData();
   },
   methods: {
+ async addCar(){
+    if(!this.showPop){
+      this.showPop=true
+      return
+    }
+    const data=await request('/addCar','POST',{
+        openId: this.openId,
+        id:this.id,
+        num:this.num,
+        money:this.money
+      })
+  },
+  async  changeColl(){
+      this.showColl=!this.showColl
+      const data=await request('/changeColl','POST',{
+        openId: this.openId,
+        id:this.id
+      })
+    },
     close(){
         this.showPop=!this.showPop
     },
@@ -109,10 +143,12 @@ export default {
         id: this.id,
         openId: this.openId,
       });
-      console.log(data);
+      console.log(data.showColl);
       this.banner = data.gallery;
       this.info=data.info
       this.attribute=data.attribute
+      this.showColl=data.showColl.length>0?true:false
+      this.money=data.info.retail_price
     },
   },
 };

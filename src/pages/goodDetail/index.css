@@ -185,3 +185,76 @@
   text-overflow:ellipsis;
   white-space: nowrap;
 }
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 750rpx;
+  height: 100rpx;
+  display: flex;
+  background: #fff;
+  z-index: 10;
+
+}
+.footer div:first-child,.footer div:nth-child(2){
+  height: 100rpx;
+  width: 162rpx;
+  border: 1rpx solid #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.collect{
+  display: block;
+  height: 44rpx;
+  width: 44rpx;
+  background: url('../../../static/images/icon_collect.png') no-repeat;
+  background-size: 100% 100%;
+}
+.collect.active{
+  display: block;
+  height: 44rpx;
+  width: 44rpx;
+  background: url('../../../static/images/icon_collect_checked.png') no-repeat;
+  background-size: 100% 100%;
+}
+.footer div:nth-child(3){
+  height: 100rpx;
+  line-height: 96rpx;
+  flex: 1;
+  text-align: center;
+  color: #333;
+  
+  font-size: 30rpx;
+}
+.footer div:nth-child(4){
+  height: 100rpx;
+  line-height: 96rpx;
+  flex: 1;
+  font-size: 30rpx;
+  text-align: center;
+  color: #fff;
+ background: #b4282d;
+
+}
+.car{
+  height: 44rpx;
+  width: 44rpx;
+  background: url('../../../static/images/ic_menu_shoping_nor.png') no-repeat;
+  background-size: 100% 100%;
+}
+.num{
+  font-size: 28rpx;
+  position: absolute;
+  left:80rpx;
+  top:20rpx;
+  width:30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: #b4282d;
+  color: #fff;
+  text-align: center;
+  line-height: 30rpx;
+}

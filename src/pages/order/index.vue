@@ -11,12 +11,22 @@ data(){
         addressId:''
     }
  },
+ show(){
+     this.getOrders()
+ },
  mounted(){
-
+     this.getOrders()
  },
  methods:{
-
- }
+    async getOrders(){
+        console.log(1)
+        const data=await request('/getOrder','GET',{
+            openId:this.openId,
+            addressId:this.addressId
+        })
+      console.log(data)
+    }
+  }
 }
 </script>
 

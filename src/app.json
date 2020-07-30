@@ -13,7 +13,8 @@
     "pages/brandList/main",
     "pages/brandDetail/main",
     "pages/newGood/main",
-    "pages/topicDetail/main"
+    "pages/topicDetail/main",
+    "pages/order/main"
   ],
   "permission": {
     "scope.userLocation": {

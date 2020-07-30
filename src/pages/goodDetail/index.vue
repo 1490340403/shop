@@ -68,7 +68,7 @@
          <span class="car"></span>
          <span class="num">{{catNum}}</span>
        </div>
-       <div @click="close">立即购买</div>
+       <div @click="goOrder">立即购买</div>
        <div @click="addCar">加入购物车</div>
 
      </div>
@@ -89,7 +89,7 @@ export default {
       showPop:false,
       num:1,
       attribute:[],
-      catNum:1,
+      catNum:0,
       showColl:'',
       money:''
     };
@@ -108,6 +108,23 @@ export default {
     this.getData();
   },
   methods: {
+async goOrder(){
+   if(!this.showPop){
+      this.showPop=true
+      return
+    }
+  const data=await request('/addOrder','POST',{
+    openId: this.openId,
+    id:this.id,
+    money:this.money
+  })
+  if(data.data){
+    wx.navigateTo({
+      url: '/pages/order/main'
+    });
+      
+  }
+},
  async addCar(){
     if(!this.showPop){
       this.showPop=true
@@ -119,12 +136,21 @@ export default {
         num:this.num,
         money:this.money
       })
+      if(data){
+        this.catNum+=this.num
+        wx.showToast({
+          title: '加入购物车成功',
+          icon: 'success',
+          duration: 2000
+        })
+
+      }
   },
   async  changeColl(){
       this.showColl=!this.showColl
       const data=await request('/changeColl','POST',{
         openId: this.openId,
-        id:this.id
+        id:this.id,
       })
     },
     close(){
@@ -149,6 +175,7 @@ export default {
       this.attribute=data.attribute
       this.showColl=data.showColl.length>0?true:false
       this.money=data.info.retail_price
+      this.catNum=data.shopNum
     },
   },
 };

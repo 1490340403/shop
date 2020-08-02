@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-     <div class="seladdress" v-else @click="toAdd">请选择默认地址</div>
+     <div class="seladdress" v-else @click="toAddressList">请选择默认地址</div>
 
     <div class="orderbox">
       <div class="item">
@@ -75,11 +75,15 @@ data(){
       listData: []
     }
  },
+ onShow(){
+    this.getOrders()
+ },
  mounted(){
-     this.getOrders()
+    
  },
  methods:{
    toAddressList(){
+     console.log(111)
      wx.navigateTo({
        url: '/pages/selectAddress/main'
      });

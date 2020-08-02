@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/order/main",
     "pages/goodDetail/main",
     "pages/search/main",
@@ -15,7 +16,9 @@
     "pages/brandDetail/main",
     "pages/newGood/main",
     "pages/topicDetail/main",
-    "pages/selectAddress/main"
+    "pages/selectAddress/main",
+    "pages/addAddress/main"
+    
   ],
   "permission": {
     "scope.userLocation": {

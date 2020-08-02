@@ -7,7 +7,7 @@
       <input type="text" placeholder="手机号码" v-model="telNumber">
     </div>
     <div class="item">
-      <picker mode="region" @change="bindRegionChange" :value="region" :custom-item="customItem">
+      <picker mode="region" @change="bindRegionChange" :custom-item="customItem">
         <input type="text" placeholder="身份、城市、区县" v-model="address">
       </picker>
     </div>
@@ -37,7 +37,7 @@ export default {
         return {
             userName:'',
             telNumber:'',
-            region:"",
+            
             address:'',
             customItem:'全部',
             detailaddress:'',
@@ -54,12 +54,11 @@ export default {
             this.getData()
         }
         if(this.res){
-             this.res = JSON.parse(decodeURIComponent(this.$root.$mp.query.res))
-      console.log(this.res, '------')
+     this.res = JSON.parse(decodeURIComponent(this.$root.$mp.query.res))
       this.userName = this.res.userName
       this.telNumber = this.res.telNumber
       this.address = `${this.res.provinceName} ${this.res.cityName} ${this.res.countyName}`
-      this.detailaddress = this.res.detailInfo
+      this.detailaddress = this.res.address_detail
         }
     },
     mounted(){
